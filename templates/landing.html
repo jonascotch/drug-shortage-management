@@ -1,0 +1,47 @@
+{% extends 'home.html' %}
+
+{% block main %}
+
+<div class="container-fluid row mt-3 ms-1">
+    <h3 class="mb-3 text-center">Drug Shortage Info</h3>
+    <table class="table table-striped-columns table-hover" id="landingTable">
+        <thead class="table-success">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Info</th>
+                <th>Expected end of shortage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row['code'] }}</td>
+                <td>{{ row['desig'] }}</td>
+                <td>{{ row['detail'] }}</td>
+                <td>{{ row['end_date'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock main %}
+
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#landingTable').DataTable(
+            {
+                columns : [
+                    null,
+                    null,
+                    {orderable: false},
+                    null
+                ]
+            }
+        )
+        });
+</script>
+{% endblock script %}

@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+
+{% block main %}
+
+<div class="container-fluid text-center row mt-3">
+    <a class="mt-3" href="{{url_for('newform')}}"><button class="btn btn-primary fs-3 w-25">Create New</button></a>
+    <a class="mt-3" id="listButton" href="#"><button class="btn btn-primary fs-3 w-25">Shortage List</button></a>
+    <div class ="container" style="display:flex; justify-content:center; gap:20px">
+        <a class="mt-3 childButton" href="{{ url_for('render_list', status='other')}}" style="visibility:hidden"><button class="btn btn-warning fs-3" style="width:200px">Not Resolved</button></a>
+        <a class="mt-3 childButton" href="{{ url_for('render_list', status='public')}}" style="visibility:hidden"><button class="btn btn-danger fs-3" style="width:200px">Public Info</button></a>
+        <a class="mt-3 childButton" href="{{ url_for('render_list', status='all')}}" style="visibility:hidden"><button class="btn btn-success fs-3" style="width:200px">All</button></a>
+    </div>
+    
+</div>
+
+{% endblock main %} 
+{% block script %}
+<script>
+    bswitch = document.getElementById('listButton');
+    bswitch.addEventListener("click", toggledisplay)
+
+    function toggledisplay(){
+        child = document.getElementsByClassName('childButton');
+
+        for (let i = 0; i < child.length; i++){
+            if (child[i].style.visibility == 'hidden'){
+                child[i].style.visibility = 'visible'
+            }
+            else {
+                child[i].style.visibility = 'hidden'
+            }
+        }
+    }
+</script>
+{% endblock script %}

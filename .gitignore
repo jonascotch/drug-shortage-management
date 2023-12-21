@@ -1,0 +1,6 @@
+__pycache__/
+env/
+flask_session/
+helpers/
+.env
+.flaskenv
