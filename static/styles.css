@@ -17,6 +17,16 @@ body, html{
     right: 0;
 }
 
+.test-instruction-text {
+    background-color: white;
+    width: max-content;
+    font-size: 24px;
+    justify-self: center;
+    margin: 20px auto;
+    padding: 5px 20px;
+    border-radius: 10px;;
+}
+
 .navbar-brand {
     padding-left: 30px;
 }
